@@ -1,7 +1,20 @@
 @use 'core/reset';
-@use 'components/code';
-@use 'components/links';
-@use 'layout/page';
-@use 'layout/header';
-@use 'layout/footer';
-@use 'pages/index';
+.header {
+    display: flex;
+    padding-top: 35px;
+    justify-content: center;
+
+    &-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+    
+    
+    
+    
+
+
+
