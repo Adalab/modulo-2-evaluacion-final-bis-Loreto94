@@ -15,7 +15,8 @@ const handleFetch = () => {
                 name: user.name.title + "" + user.name.first + "" + user.name.last,
                 city: user.location.city,
                 userName: user.login.username,
-                isFriend: false,  
+                isFriend: false,
+                idValue: user.id.value,  
             }
         })
         console.log(newArray);
@@ -24,7 +25,7 @@ const handleFetch = () => {
             let content= "";
             for (const user of users)
             content+= `
-            <li class="js-user">
+            <li class="js-user" id="${user.idValue}">
                 <img src="${user.photo}" alt="">
                 <h2>${user.name}</h2>
                 <p>${user.city}</p>
@@ -32,20 +33,23 @@ const handleFetch = () => {
             </li>
             `
             usersList.innerHTML= content;
-    /*Cuando la usuaria haga click en un usuario
-        -Tengo que saber en cúal
-        -Añado ese usuario a la LISTA DE FAVORITOS
-        -Estilo los usuarios favoritos*/
+    //Cuando la usuaria haga click en un usuario
         const elementsList= document.querySelectorAll(".js-user"); //Me devuelve una lista de elementos del html con esa clase (un array)
         for (const element of elementsList){
             element.addEventListener("click", handleAddFavorite);
         }
         }
-        function handleAddFavorite(){
+        function handleAddFavorite(event){
             console.log("Ha hecho click");
+            const userID= event.currentTarget.id; //¿Por qué id y no idValue?
+            console.log(userID);//Tengo que saber en cúal ha clickado con el id
+            
         }
+
+        //Añado ese usuario a la LISTA DE FAVORITOS
+        //Estilo los usuarios favoritos
         
-        //user.addEventListener("click", handleFavorite); Cuando la usuaria haga click en uno de los elementos de la lista (del array), marcar como favorito
+    
     })
 }
 window.addEventListener("load", handleFetch);
