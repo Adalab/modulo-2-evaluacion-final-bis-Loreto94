@@ -4,6 +4,7 @@ console.log('>> Ready :)');
 
 const usersList = document.querySelector(".js-usersList");
 const setButtn = document.querySelector(".js-setBttn");
+const recoverBttn = document.querySelector(".js-recoverBttn");
 
 const handleFetch = () => {
     fetch("https://randomuser.me/api/?results=10")
@@ -20,7 +21,7 @@ const handleFetch = () => {
                     idValue: user.id.value,
                 }
             })
-            console.log(newArray);
+            //console.log(newArray);
             renderUsers(newArray);
             function renderUsers(users) {
                 let content = "";
@@ -44,8 +45,14 @@ const handleFetch = () => {
             }
             const handleClick = () => {
                 localStorage.setItem("user", JSON.stringify(newArray));
+            
+            }
+            const handleRecover = () => {
+                const userLocalStorage= JSON.parse(localStorage.getItem("user"));
+                console.log(typeof userLocalStorage);
             }
             setButtn.addEventListener("click", handleClick);
+            recoverBttn.addEventListener("click", handleRecover);
             function handleAddFavorite(event) {
                 console.log("Ha hecho click");
                 const userClicked = event.currentTarget.id; //¿Por qué id y no idValue?
