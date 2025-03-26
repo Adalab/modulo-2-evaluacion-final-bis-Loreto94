@@ -5,7 +5,7 @@ console.log('>> Ready :)');
 const usersList = document.querySelector(".js-usersList");
 const setButtn = document.querySelector(".js-setBttn");
 const recoverBttn = document.querySelector(".js-recoverBttn");
-let users = []; //ESTE ES EL ARRAY CON EL ELEMENTO SELECCIONADO, SOBRE EL QUE USAR METODO FUNCIONAL ¿indexOf?
+let users = []; //ESTE ES EL ARRAY CON EL ELEMENTO SELECCIONADO, SOBRE EL QUE USAR METODO FUNCIONAL ¿?
 
 const handleFetch = () => {
     fetch("https://randomuser.me/api/?results=10")
@@ -23,7 +23,7 @@ const handleFetch = () => {
                 }
             })
 
-        
+
             renderUsers(users);
 
 
@@ -35,18 +35,18 @@ const handleFetch = () => {
 
 function renderUsers(users) {
     let content = "";
-    for (const user of users){
+    for (const user of users) {
         const friendClass = user.isFriend ? "friend" : "";
         content += `
 <li class="user js-user ${friendClass}" id="${user.idValue}">
-    <img src="${user.photo}" alt="">
-    <h2>${user.name}</h2>
-    <p>${user.city}</p>
-    <p>${user.userName}</p>
+    <img class="js-image" src="${user.photo}" alt="">
+    <h2 class="js-name">${user.name}</h2>
+    <p class="js-city">${user.city}</p>
+    <p class="js-username">${user.userName}</p>
 </li>
 `
     }
-        
+
     usersList.innerHTML = content;
 
 
@@ -69,12 +69,12 @@ function handleAddFavorite(event) {
         return user.idValue === idUser;
 
     })
-    
+
     if (userSelected !== -1) {  // Verificamos si el índice es válido (no -1, lo que indica que el usuario fue encontrado)
         users[userSelected].isFriend = true;  // Modificar el objeto directamente en el array usando el índice
         console.log(users[userSelected].isFriend);
         renderUsers(users);  // Volver a renderizar la lista de usuarios con los cambios
-    } 
+    }
 }
 
 const handleClick = () => {
@@ -84,6 +84,9 @@ const handleClick = () => {
 const handleRecover = () => {
     const userLocalStorage = JSON.parse(localStorage.getItem("user"));
     console.log(typeof userLocalStorage);
+    users = userLocalStorage;  // Sobrescribir el array de usuarios con los datos recuperados
+    console.log(users);
+    renderUsers(users);
 }
 window.addEventListener("load", handleFetch);
 
