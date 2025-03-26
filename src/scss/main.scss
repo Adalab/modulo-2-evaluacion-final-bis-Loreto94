@@ -1,4 +1,5 @@
 @use 'core/reset';
+
 .header {
     display: flex;
     padding-top: 35px;
@@ -11,14 +12,26 @@
     }
 }
 
-.friend {
-    background-color: rgb(58, 5, 14);
-}  
-    
-.notAFriend {
+.userList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+}
+
+.user {
     background-color: aquamarine;
 }
-    
 
+.friend {
+    background-color: pink;
+}
 
+.setBttn {
+    background-color: aquamarine;
+}
+.recoverBttn {
+    background-color: aquamarine;
+}
 
