@@ -20,6 +20,7 @@ const handleFetch = () => {
                     userName: user.login.username,
                     isFriend: false,
                     idValue: user.id.value,
+                    phone: user.phone,
                 }
             })
 
@@ -43,6 +44,7 @@ function renderUsers(users) {
     <h2 class="js-name">${user.name}</h2>
     <p class="js-city">${user.city}</p>
     <p class="js-username">${user.userName}</p>
+    <p>${user.phone}<p/>
 </li>
 `
     }
