@@ -2,10 +2,6 @@
 @use 'core/variables' as vars;
 
 
-.body {
-    opacity: 0, 5;
-}
-
 .header {
     display: flex;
     padding-top: 35px;
@@ -16,15 +12,20 @@
         font-family: vars.$font-main;
         font-weight: normal;
         display: flex;
-        justify-content: center;
+        width: 30vh;
+        justify-content: flex-end;
         align-items: center;
     }
 
     &-buttons {
         display: flex;
+        justify-content: flex-start;
         flex-direction: column;
         gap: 5px;
         border: 2px grey;
+        width: auto; /* Cambiar el width a auto */
+       
+        margin-top: 25px;
     }
 }
 
@@ -34,6 +35,7 @@
     align-items: center;
     padding: 30px;
     gap: 30px;
+    margin-top: -20px;
 }
 
 .user {
@@ -76,15 +78,16 @@
 
 .setBttn {
     background-color: aquamarine;
-    padding: 2px;
+    padding: 5px;
     font-size: 10px;
     font-family: vars.$font-main;
+    
 }
 
 .recoverBttn {
     background-color: aquamarine;
-    padding: 2px;
+    padding: 5px;
     font-size: 10px;
     font-family: vars.$font-main;
-
+    
 }

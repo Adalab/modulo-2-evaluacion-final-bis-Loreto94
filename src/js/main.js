@@ -90,7 +90,7 @@ const handleRecover = () => {
     console.log(users);
     renderUsers(users);
 }
-window.addEventListener("load", handleFetch);
+handleRecover();
 
 
 
